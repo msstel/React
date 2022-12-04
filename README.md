@@ -31,3 +31,49 @@ class Mood extends React.Component {
 }
 
 ReactDOM.render(<Mood />, document.getElementById('app'));
+
+
+togglge.js
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+const green = '#39D1B4';
+const yellow = '#FFD712';
+
+class Toggle extends React.Component {
+  constructor(props){
+    super(props);
+    this.changeColor
+    = this.changeColor.bind(this);
+    this.state = { color: green }
+  }
+
+  changeColor(){
+    const newColor = this.state.color == green ? yellow : green;
+    this.setState({ color: newColor });
+  }
+
+  render() {
+    return (
+      <div 
+      style=
+      {{background: this.state.color}} >
+        <h1>
+          Change my color
+        </h1>
+        <button 
+        onClick = {this.changeColor}>
+        Change color
+        </button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Toggle />, 
+document.getElementById('app'));
+
+
